@@ -2,7 +2,7 @@
 import { Input } from "antd";
 import { Bell, User } from "lucide-react";
 
-export function Content() {
+export function Content({contentProps}) {
   const { Search } = Input;
   return (
     <div className="flex justify-between w-[60%] cursor-pointer">
