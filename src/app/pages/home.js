@@ -11,20 +11,18 @@ export default function Home() {
     async function fetchData() {
       try {
         const data = await consumptionApiForecast();
-        setInfoWeather([data.location]); 
+        setInfoWeather([data]);
       } catch (error) {
         alert("Erro ao carregar dados");
       }
     }
     fetchData();
-  }, []); 
-  console.log(infoWeather,'array')
-
+  }, []);
   return (
     <div className="flex">
       <Sidebar />
-      <Content contentProps={infoWeather}/>
-      <SidebarForecast contentProps={infoWeather}/>
+      <Content contentProps={infoWeather} />
+      <SidebarForecast contentProps={infoWeather} />
     </div>
   );
 }
