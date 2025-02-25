@@ -9,6 +9,7 @@ export function Content({ contentProps }) {
   const locationName = locationArray.map((item) => item.name);
   const currentTempInfo = contentProps.map((item) => item.current);
   const degreesInfo = currentTempInfo.map((item) => item.temp_c);
+  const humidityInfo = currentTempInfo.map((item) => item.humidity);
 
   return (
     <div className="flex flex-col w-[60%]">
@@ -29,6 +30,7 @@ export function Content({ contentProps }) {
         <LocalInformationCard
           title={locationName}
           degrees={`${degreesInfo}º`}
+          humidity={`${humidityInfo}%`}
         />
       </div>
     </div>
