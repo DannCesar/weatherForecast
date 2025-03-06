@@ -2,6 +2,7 @@
 import { Input } from "antd";
 import { Bell, User } from "lucide-react";
 import { LocalInformationCard } from "./localInformationCard";
+import { InfoCard } from "./infoCard";
 
 export function Content({ contentProps }) {
   const { Search } = Input;
@@ -32,6 +33,36 @@ export function Content({ contentProps }) {
           degrees={`${degreesInfo}º`}
           humidity={`${humidityInfo}%`}
         />
+      </div>
+      <div className="grid grid-cols-2 p-10 gap-8">
+        <div>
+          <InfoCard
+            titleCard={"Título"}
+            todayInfo={"Informação"}
+            numberInfo={20}
+          />
+        </div>
+        <div>
+          <InfoCard
+            titleCard={"Título"}
+            todayInfo={"Informação"}
+            numberInfo={20}
+          />
+        </div>
+        <div>
+          <InfoCard
+            titleCard={"Título"}
+            todayInfo={"Informação"}
+            numberInfo={20}
+          />
+        </div>
+        <div>
+          <InfoCard
+            titleCard={"Título"}
+            todayInfo={"Informação"}
+            numberInfo={20}
+          />
+        </div>
       </div>
     </div>
   );
