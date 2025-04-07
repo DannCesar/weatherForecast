@@ -6,5 +6,5 @@ export default function CurrentDate() {
     setDate(new Date().toLocaleDateString("pt-BR"));
   }, []);
  
-  return <span>{date}</span>;
+  return <span className="text-sm">{date}</span>;
 }

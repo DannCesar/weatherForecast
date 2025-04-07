@@ -1,6 +1,6 @@
 "use client";
 import { Input } from "antd";
-import { Bell, User } from "lucide-react";
+import { Bell, User, CircleGauge, WindArrowDown, SunriseIcon} from "lucide-react";
 import { LocalInformationCard } from "./localInformationCard";
 import { InfoCard } from "./infoCard";
 
@@ -11,10 +11,14 @@ export function Content({ contentProps }) {
   const currentTempInfo = contentProps.map((item) => item.current);
   const degreesInfo = currentTempInfo.map((item) => item.temp_c);
   const humidityInfo = currentTempInfo.map((item) => item.humidity);
-
+  const windInfo = currentTempInfo.map((item) => item.wind_kph);
+  const uvInfo = currentTempInfo.map((item) => item.uv)
+  const pressureMb = currentTempInfo.map((item) => item.pressure_mb)
+  const condition = currentTempInfo.map((item) => item.condition.text)
+console.log(contentProps,"console")
   return (
     <div className="flex flex-col w-[60%]">
-      <div className="flex justify-between  cursor-pointer">
+      <div className="flex justify-between p-3 cursor-pointer">
         <div className="flex  p-6 w-[60%]">
           <Search placeholder="Buscar" />
         </div>
@@ -32,35 +36,39 @@ export function Content({ contentProps }) {
           title={locationName}
           degrees={`${degreesInfo}º`}
           humidity={`${humidityInfo}%`}
+          wind={`${windInfo}Km/h`}
         />
       </div>
       <div className="grid grid-cols-2 p-10 gap-8">
         <div>
           <InfoCard
-            titleCard={"Título"}
-            todayInfo={"Informação"}
-            numberInfo={20}
+            titleCard={"Vento"}
+            todayInfo={"Velocidade do vento de hoje"}
+            numberInfo={`${windInfo}Km/h`}
+            iconInfo={CircleGauge}
           />
         </div>
         <div>
           <InfoCard
-            titleCard={"Título"}
-            todayInfo={"Informação"}
-            numberInfo={20}
+            titleCard={"Clima"}
+            todayInfo={"Clima hoje"}
+            numberInfo={condition}
           />
         </div>
         <div>
           <InfoCard
-            titleCard={"Título"}
-            todayInfo={"Informação"}
-            numberInfo={20}
+            titleCard={"Pressão"}
+            todayInfo={"Pressão atmosférica hoje"}
+            numberInfo={`${pressureMb} Mb/h`}
+            iconInfo={WindArrowDown}
           />
         </div>
         <div>
           <InfoCard
-            titleCard={"Título"}
-            todayInfo={"Informação"}
-            numberInfo={20}
+            titleCard={"Raios UV"}
+            todayInfo={"Raios UV hoje"}
+            numberInfo={uvInfo}
+            iconInfo={SunriseIcon}
           />
         </div>
       </div>

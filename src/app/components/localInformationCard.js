@@ -1,8 +1,8 @@
 "use client";
-import { MapPin, Droplet } from "lucide-react";
+import { MapPin, Droplet, Wind } from "lucide-react";
 import Clock from "./clock";
 import CurrentDate from "./currentDate";
-export function LocalInformationCard({ title, dateInfo, degrees, humidity }) {
+export function LocalInformationCard({ title, degrees, humidity, wind }) {
   return (
     <div className="flex flex-col w-[100%] bg-blue-200 rounded-lg  text-sky-700 p-8">
       <div className="flex items-center justify-between p-4">
@@ -16,9 +16,15 @@ export function LocalInformationCard({ title, dateInfo, degrees, humidity }) {
         </div>
       </div>
       <span className="text-4xl p-4 ml-10">{degrees}</span>
-      <div className="flex p-4">
-        <Droplet size={16} />
-        <span className="text-xs">{humidity}</span>
+      <div className="flex p-4 gap-10">
+        <div className="flex">
+          <Droplet size={16} />
+          <span className="text-xs">{humidity}</span>
+        </div>
+        <div className="flex">
+          <Wind size={16} />
+          <span className="text-xs">{wind}</span>
+        </div>
       </div>
     </div>
   );

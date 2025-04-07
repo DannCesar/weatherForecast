@@ -10,5 +10,5 @@ export default function Clock() {
     return () => clearInterval(interval);
   }, []);
 
-  return <span className="text-xl ">{time}</span>;
+  return <span className="text-sm ">{time}</span>;
 }
