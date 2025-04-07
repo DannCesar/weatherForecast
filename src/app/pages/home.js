@@ -1,9 +1,10 @@
 "use client";
 import { Sidebar } from "../components/sidebar";
-import { Content } from "../components/content";
 import { SidebarForecast } from "../components/sidebarForecast";
 import { useEffect, useState } from "react";
 import { consumptionApiForecast } from "@/api/api";
+import dynamic from "next/dynamic";
+const Content = dynamic(() => import("../components/content"), {ssr: false});
 
 export default function Home() {
   const [infoWeather, setInfoWeather] = useState([]);
